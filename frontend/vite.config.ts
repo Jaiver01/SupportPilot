@@ -12,5 +12,8 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, "")
       }
     }
+  },
+  preview: {
+    allowedHosts: ["supportpilot-web.onrender.com"]
   }
 });
