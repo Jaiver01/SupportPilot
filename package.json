@@ -1,0 +1,37 @@
+{
+  "name": "support-pilot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm run dev:api",
+    "dev:api": "tsx watch src/index.ts",
+    "dev:web": "npm --prefix frontend run dev",
+    "dev:all": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "build": "npm run build:api && npm run build:web",
+    "build:api": "tsc -p tsconfig.json",
+    "build:web": "npm --prefix frontend run build",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "typecheck": "npm run typecheck:api && npm run typecheck:web",
+    "typecheck:api": "tsc -p tsconfig.json --noEmit",
+    "typecheck:web": "npm --prefix frontend run typecheck"
+  },
+  "dependencies": {
+    "@langchain/core": "^0.3.56",
+    "@langchain/google-genai": "^0.1.11",
+    "@supabase/supabase-js": "^2.54.0",
+    "@fastify/cors": "^10.0.1",
+    "dotenv": "^16.6.1",
+    "fastify": "^5.0.0",
+    "gray-matter": "^4.0.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.6",
+    "concurrently": "^9.0.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
+  }
+}
